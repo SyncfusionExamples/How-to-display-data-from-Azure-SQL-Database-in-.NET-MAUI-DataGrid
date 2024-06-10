@@ -25,8 +25,7 @@ Displaying data from an Azure SQL Database in a [.NET MAUI DataGrid](https://www
 
 ##### C#
 
-Create a class for accessing the database and retrieving data.
-Use the ADO.NET connection string copied earlier.
+Create a class for accessing the database and retrieving data.Use the ADO .NET connection string copied earlier.
 
 ```C#
 public class DatabaseService

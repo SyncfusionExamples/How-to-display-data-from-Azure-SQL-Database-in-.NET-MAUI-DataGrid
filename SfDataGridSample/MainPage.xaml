@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+             xmlns:viewModel="clr-namespace:SfDataGridSample.ViewModel"
+             xmlns:converter="clr-namespace:SfDataGridSample.Converter"
+             x:Class="SfDataGridSample.MainPage">
+
+    <ContentPage.BindingContext>
+        <viewModel:StockViewModel x:Name="_stockViewModel"/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <converter:TextColorConverter x:Key="textColorConverter"/>
+        <Style TargetType="syncfusion:DataGridCell" x:Key="changeStyle">
+            <Setter Property="TextColor" Value="{Binding Change,Converter={StaticResource textColorConverter}}"/>
+        </Style>
+        <Style TargetType="syncfusion:DataGridCell" x:Key="changePercentStyle">
+            <Setter Property="TextColor" Value="{Binding ChangePercent,Converter={StaticResource textColorConverter}}"/>
+        </Style>
+
+    </ContentPage.Resources>
+
+
+    <syncfusion:SfDataGrid x:Name="sfGrid" ColumnWidthMode="Auto"
+                           GridLinesVisibility="Both"
+                           HeaderGridLinesVisibility="Both"
+                 ItemsSource="{Binding StockData}">
+        <syncfusion:SfDataGrid.Columns>
+            <syncfusion:DataGridTextColumn MappingName="Ticker" />
+            <syncfusion:DataGridTextColumn MappingName="CompanyName" HeaderText="Name" />
+            <syncfusion:DataGridNumericColumn MappingName="LastPrice" HeaderText="Last Price" Format="C"/>
+            <syncfusion:DataGridNumericColumn MappingName="Change"  Format="C" CellStyle="{StaticResource changeStyle}"/>
+            <syncfusion:DataGridNumericColumn MappingName="ChangePercent" HeaderText="Change Percent" CellStyle="{StaticResource changePercentStyle}"  Format="C"/>
+            <syncfusion:DataGridNumericColumn MappingName="OpenColumn" HeaderText="Open" />
+            <syncfusion:DataGridNumericColumn MappingName="HighColumn" HeaderText="High" />
+            <syncfusion:DataGridNumericColumn MappingName="LowColumn"  HeaderText="Low" />
+            <syncfusion:DataGridNumericColumn MappingName="Volume"  />
+            <syncfusion:DataGridNumericColumn MappingName="MarketCap" HeaderText="Market Cap"  />
+        </syncfusion:SfDataGrid.Columns>
+    </syncfusion:SfDataGrid>
+
+
+
+</ContentPage>

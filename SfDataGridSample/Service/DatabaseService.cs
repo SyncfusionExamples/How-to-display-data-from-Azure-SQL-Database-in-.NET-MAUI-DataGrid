@@ -11,7 +11,7 @@ namespace SfDataGridSample.Service
 {
     public class DatabaseService
     {
-        public const string ConnectionString = "Server=tcp:sfdatagrid.database.windows.net,1433;Database=DataGridDB;Uid=PaulAnderson;Pwd=SF1591@syncfusion;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;";
+        public const string ConnectionString = "You connection string here";
 
         public IEnumerable<Stocks> PopulateData()
         {
